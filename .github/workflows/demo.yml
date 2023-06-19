@@ -10,7 +10,12 @@ jobs:
     #определяет, под какой системой будет работать данные workflow 
     runs-on: ubuntu-latest 
     steps:
-      - name: Print to consol
+      - name: Print to console
         run: echo hello world 123!
+      - name: Print to console, but many lines
+        run: |
+          echo line one
+          echo line two
+          echo line three
 
    

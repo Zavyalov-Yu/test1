@@ -6,11 +6,11 @@ on: [workflow_dispatch] #команда запуска workflow только в 
 
 # Запуск рабочего процесса состоит из одного или нескольких заданий, которые могут выполняться последовательно или параллельн
 jobs:
-  print_test:  # джоб под назаванием "ptint_test"
+  print_test:  # название дожоба - "ptint_test"
     #определяет, под какой системой будет работать данные workflow 
     runs-on: ubuntu-latest 
     steps:
-      - name: Print to console
+      - name: Print to console #название шага
         run: echo hello world 123!
       - name: Print to console, but many lines
         run: |

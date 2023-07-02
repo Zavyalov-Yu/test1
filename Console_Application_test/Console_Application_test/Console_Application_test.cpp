@@ -1,12 +1,12 @@
 ﻿// Console_Application_test.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
-#include <iostream>
-
+#include <stdio.h>
+ 
 int main()
 {
-    std::cout << "Hello World!\n";
-    return 0;
+    printf("Hello world");
+	return 0;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

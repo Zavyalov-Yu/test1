@@ -1,14 +1,17 @@
 name: C/C++ Build
-on: [workflow_dispatch]
-  #push:
-  #  branches: [ "master" ]
-  #pull_request:
-  #  branches: [ "master" ]
+on: [workflow_dispatch] #команда запуска workflow только в ручному режиме
+
+# Запуск рабочего процесса состоит из одного или нескольких заданий, которые могут выполняться последовательно или параллельн
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps: 
-            - name: checkout
-            - uses: actions/checkout@v3
-            - name: ls -a
-              run: ls -a
+  print_test:  # название дожоба - "ptint_test"
+    #определяет, под какой системой будет работать данные workflow 
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Print to console #название шага
+        run: echo hello world 123!
+      - name: clone repo
+        uses: actions/checkout@v3
+      - name: Print to console, but many lines
+        run: |
+          ls -la
+          gcc -v

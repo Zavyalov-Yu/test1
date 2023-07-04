@@ -1,8 +1,14 @@
-name: C/C++ CI
-on: [workflow_dispatch]
+name: C/C++ build
+on: [workflow_dispatch] #команда запуска workflow только в ручному режиме
 jobs:
-    build:
-      runs-on: ubuntu-latest
-      steps: 
-        - name: checkout
-        - run: echo "actions/checkout@v3"
+  print_test:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Print to console #название шага
+        run: echo hello world 123!
+      - name: clone repo
+        uses: actions/checkout@v3
+      - name: Print to console, but many lines
+        run: |
+          ls -la
+          gcc -v

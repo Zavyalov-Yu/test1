@@ -10,11 +10,19 @@ jobs:
       - name: clone repo
         uses: actions/checkout@v3
       - name: ls -a
-        run:  ls -l
+        run:  ls -a
       - name: create folder 
         run:  mkdir build
       - name: build gcc
         run:  gcc ./Console_Application_test/Console_Application_test/Console_Application_test.cpp -o ./build/run
+      - name: ls -a
+        run:  |
+            ls -a
+            echo -----------------
+      - name: ls -a build
+        run:  |
+            ls -a build
+            echo -----------------
       - name: use artifact
         uses: actions/upload-artifact@v3
         with:

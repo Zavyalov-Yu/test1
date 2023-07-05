@@ -7,11 +7,9 @@ jobs:
     #определяет, под какой системой будет работать данные workflow 
     runs-on: ubuntu-latest 
     steps:
-      - name: Print to console #название шага
-        run: echo hello world 123!
       - name: clone repo
         uses: actions/checkout@v3
-      - name: Print to console, but many lines
-        run: |
-          ls -la
-          gcc -v
+      - name: ls -a
+        run:  ls -l
+      - name: version gcc
+        run:  gcc -v

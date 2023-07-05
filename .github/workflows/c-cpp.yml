@@ -11,5 +11,12 @@ jobs:
         uses: actions/checkout@v3
       - name: ls -a
         run:  ls -l
-      - name: version gcc
-        run:  gcc -v
+      - name: create folder 
+        run:  mkdir build
+      - name: build gcc
+        run:  gcc ./Console_Application_test/Console_Application_test/Console_Application_test.cpp -o ./build/run
+      - name: use artifact
+        uses: actions/upload-artifact@v3
+        with:
+            name: art1
+            path: ./build/run.exe

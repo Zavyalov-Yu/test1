@@ -42,7 +42,7 @@ jobs:
           - name:  build gcc 
             run:  gcc ${{env.source_file}} -o ./build_Win/run
           - name: use artifact
-                uses: actions/upload-artifact@v3
-                with:
-                    name: art_windows
-                    path: ./build_Win/run
+            uses: actions/upload-artifact@v3
+            with:
+                name: art_windows
+                path: ./build_Win/run

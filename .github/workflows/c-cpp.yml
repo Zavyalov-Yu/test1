@@ -45,9 +45,9 @@ jobs:
             run:  |
                 ls
                 echo -----------------
-          - name: ls -a build_Win
+          - name: ls build_Win
             run:  |
-                ls -a build
+                ls  build_Win
                 echo -----------------
           - name: use artifact
             uses: actions/upload-artifact@v3

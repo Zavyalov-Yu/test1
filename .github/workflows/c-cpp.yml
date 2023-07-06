@@ -6,28 +6,43 @@ env:
   
 # Запуск рабочего процесса состоит из одного или нескольких заданий, которые могут выполняться последовательно или параллельн
 jobs:
-  print_test:  # название дожоба - "ptint_test"
-    #определяет, под какой системой будет работать данные workflow 
-    runs-on: ubuntu-latest 
-    steps:
-      - name: clone repo
-        uses: actions/checkout@v3
-      - name: ls -a
-        run:  ls -a
-      - name: create folder 
-        run:  mkdir build
-      - name: build gcc
-        run:  gcc ${{env.source_file}} -o ./build/run
-      - name: ls -a
-        run:  |
-            ls -a
-            echo -----------------
-      - name: ls -a build
-        run:  |
-            ls -a build
-            echo -----------------
-      - name: use artifact
-        uses: actions/upload-artifact@v3
-        with:
-            name: art1
-            path: ./build/run
+    Build_linux:  # название дожоба
+        #определяет, под какой системой будет работать данные workflow 
+        runs-on: ubuntu-latest 
+        steps:
+          - name: clone repo
+            uses: actions/checkout@v3
+          - name: ls -a
+            run:  ls -a
+          - name: create folder 
+            run:  mkdir build
+          - name: build gcc
+            run:  gcc ${{env.source_file}} -o ./build/run
+          - name: ls -a
+            run:  |
+                ls -a
+                echo -----------------
+          - name: ls -a build
+            run:  |
+                ls -a build
+                echo -----------------
+          - name: use artifact
+            uses: actions/upload-artifact@v3
+            with:
+                name: art_linux
+                path: ./build/run
+    
+    Build_windows: # название дожоба
+        runs-on: windows-latest
+        steps:
+          - name: clone repo
+            uses: actions/checkout@v3
+          - name: create folder 
+            run:  mkdir build_Win
+          - name:  build gcc 
+            run:  gcc ${{env.source_file}} -o ./build_Win/run
+          - name: use artifact
+                uses: actions/upload-artifact@v3
+                with:
+                    name: art_windows
+                    path: ./build_Win/run

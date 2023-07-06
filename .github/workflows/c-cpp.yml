@@ -41,9 +41,9 @@ jobs:
             run:  mkdir build_Win
           - name: build gcc 
             run:  gcc ${{env.source_file}} -o ./build_Win/run
-          - name: ls -a
+          - name: ls
             run:  |
-                ls -a
+                ls
                 echo -----------------
           - name: ls -a build_Win
             run:  |

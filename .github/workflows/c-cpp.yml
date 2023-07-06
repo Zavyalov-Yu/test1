@@ -17,7 +17,7 @@ jobs:
       - name: create folder 
         run:  mkdir build
       - name: build gcc
-        run:  gcc ${{source_file}} -o ./build/run
+        run:  gcc ${{env.source_file}} -o ./build/run
       - name: ls -a
         run:  |
             ls -a

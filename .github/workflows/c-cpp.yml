@@ -1,6 +1,9 @@
 name: C/C++ Build
 on: [workflow_dispatch] #команда запуска workflow только в ручному режиме
 
+env:
+  source_file: ./Console_Application_test/Console_Application_test/Console_Application_test.cpp
+  
 # Запуск рабочего процесса состоит из одного или нескольких заданий, которые могут выполняться последовательно или параллельн
 jobs:
   print_test:  # название дожоба - "ptint_test"
@@ -14,7 +17,7 @@ jobs:
       - name: create folder 
         run:  mkdir build
       - name: build gcc
-        run:  gcc ./Console_Application_test/Console_Application_test/Console_Application_test.cpp -o ./build/run
+        run:  gcc ${{source_file}} -o ./build/run
       - name: ls -a
         run:  |
             ls -a

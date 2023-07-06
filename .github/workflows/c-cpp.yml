@@ -53,4 +53,4 @@ jobs:
             uses: actions/upload-artifact@v3
             with:
                 name: art_windows
-                path: ./build_Win/run
+                path: ./build_Win/run.exe

@@ -8,10 +8,16 @@ jobs:
     steps:
     - name: clone repo
       uses: actions/checkout@v3
-    - name: configure
-      run: ./configure
-    - name: ls -a
-      run: la -a
+    - name:  test escape sequences 
+      run: |
+        echo 1324
+        echo C:
+        echo &#58
+        echo A&#58
+   # - name: configure
+   #   run: ./configure
+   # - name: ls -a
+   #   run: la -a
     #- name: make
       #run: make
     #- name: make check

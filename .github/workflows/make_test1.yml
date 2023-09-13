@@ -13,7 +13,8 @@ jobs:
         echo 1324
         echo C:
         echo &#58
-        echo A&#58
+        echo A &#58
+        tree C:
    # - name: configure
    #   run: ./configure
    # - name: ls -a

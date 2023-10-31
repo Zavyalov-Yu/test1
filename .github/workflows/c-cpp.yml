@@ -73,6 +73,13 @@ jobs:
             with:
                 name: art_linux
                 path: ./build/run
+          
+          - name: print_path
+            run: |
+                echo "${{ steps.download_artifact_windows.outputs.path }}"
+                echo ${{ steps.download_artifact_windows.outputs.path }}
+                echo "${{ steps.download_artifact_linux.outputs.path }}"
+                echo ${{ steps.download_artifact_linux.outputs.path }}
           # Создаем релиз, куда вдальнейшем добавим загруженные выше артефакты
           - name: create release
             id: create_release
@@ -82,14 +89,15 @@ jobs:
             with:
                 tag_name: v0.0.1
                 release_name: Release v0.0.1
+          
           # Добавляем в релиз файлы артефактов
-          - name: Upload Release Asset
-            id: upload_release_asset 
-            uses: actions/upload-release-asset@v1
-            env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            with:
-               upload_url: ${{ steps.create_release.outputs.upload_url }} 
-               asset_path: ${{ steps.download_artifact_windows.outputs.path }},  ${{ steps.download_artifact_linux.outputs.path }}
-               asset_name: download_artifact_windows, download_artifact_linux 
-               asset_content_type: application/zip
+#          - name: Upload Release Asset
+#            id: upload_release_asset 
+#            uses: actions/upload-release-asset@v1
+#            env:
+#                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#            with:
+#               upload_url: ${{ steps.create_release.outputs.upload_url }} 
+#               asset_path: ${{ steps.download_artifact_windows.outputs.path }},  ${{ steps.download_artifact_linux.outputs.path }}
+#               asset_name: download_artifact_windows, download_artifact_linux 
+#               asset_content_type: application/zip

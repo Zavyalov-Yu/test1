@@ -83,8 +83,8 @@ jobs:
             
           - name: archiving
             run: |
-                zip -r for_linux.zip ./build/run
-                zip -r for_windows.zip ./build_Win/run.exe
+                zip  for_linux.zip ./build/run
+                zip  for_windows.zip ./build_Win/run.exe
                 
           # Создаем релиз, куда вдальнейшем добавим загруженные выше артефакты
           - name: create release

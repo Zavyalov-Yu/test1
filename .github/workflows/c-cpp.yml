@@ -76,10 +76,12 @@ jobs:
           
           - name: print_path
             run: |
-                echo "${{ steps.download_artifact_windows.outputs.path }}"
-                echo ${{ steps.download_artifact_windows.outputs.path }}
-                echo "${{ steps.download_artifact_linux.outputs.path }}"
-                echo ${{ steps.download_artifact_linux.outputs.path }}
+                echo "./"
+                ls ./
+                echo "./build/"
+                ls ./build/
+                echo "./"
+                ls ./build_Win/s.path }}
           # Создаем релиз, куда вдальнейшем добавим загруженные выше артефакты
           - name: create release
             id: create_release
@@ -98,6 +100,6 @@ jobs:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             with:
                upload_url: ${{ steps.create_release.outputs.upload_url }} 
-               asset_path: ./build_Win/run.exe, ./build/run
-               asset_name: download_artifact_windows, download_artifact_linux 
+               asset_path: ./build_Win/run.exe#, ./build/run
+               asset_name: download_artifact_windows#, download_artifact_linux 
                asset_content_type: application/zip

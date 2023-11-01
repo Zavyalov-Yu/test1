@@ -65,14 +65,14 @@ jobs:
             uses: actions/download-artifact@v3
             with:
                 name: art_windows
-                path: zip art_windows ./build_Win/run.exe
+                path: ./build_Win/run.exe
                 
           - name: Download artifact linux
             id: download_artifact_linux
             uses: actions/download-artifact@v3
             with:
                 name: art_linux
-                path: zip art_linux ./build/run
+                path: ./build/run
           
           - name: print_path
             run: |

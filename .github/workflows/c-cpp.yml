@@ -74,13 +74,16 @@ jobs:
                 name: art_linux
                 path: zip art_linux ./build/run
           
+          - name: archiving
+            run: |
+                zip -r for_linux.zip ./build/
+                zip -r for_windows.zip ./build_Win/
+          
           - name: print_path
             run: |
                 echo "./"
                 ls ./
                 echo
-                echo "zip -h"
-                zip -h
             continue-on-error: true
                 
           # Создаем релиз, куда вдальнейшем добавим загруженные выше артефакты

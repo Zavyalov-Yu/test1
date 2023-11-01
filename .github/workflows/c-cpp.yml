@@ -78,10 +78,12 @@ jobs:
             run: |
                 echo "./"
                 ls ./
+                echo
                 echo "./build/"
                 ls ./build/
+                echo
                 echo "./"
-                ls ./build_Win/s.path }}
+                ls ./build_Win/
           # Создаем релиз, куда вдальнейшем добавим загруженные выше артефакты
           - name: create release
             id: create_release

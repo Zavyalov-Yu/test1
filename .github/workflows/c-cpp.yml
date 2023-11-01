@@ -98,12 +98,25 @@ jobs:
           
           # Добавляем в релиз файлы артефактов
           - name: Upload Release Asset
-            id: upload_release_asset 
+            id: upload_release_asset_windows 
             uses: actions/upload-release-asset@v1
             env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             with:
                upload_url: ${{ steps.create_release.outputs.upload_url }} 
-               asset_path: for_windows.zip, for_linux.zip
-               asset_name: for_windows, for_linux
+               asset_path: for_windows.zip
+               asset_name: for_windows
                asset_content_type: application/zip
+
+          - name: Upload Release Asset
+            id: upload_release_asset_linux
+            uses: actions/upload-release-asset@v1
+            env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            with:
+               upload_url: ${{ steps.create_release.outputs.upload_url }} 
+               asset_path: for_linux.zip
+               asset_name: for_linux
+               asset_content_type: application/zip
+
+

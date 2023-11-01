@@ -79,11 +79,8 @@ jobs:
                 echo "./"
                 ls ./
                 echo
-                echo "./build/"
-                ls ./build/
-                echo
-                echo "./"
-                ls ./build_Win/
+                echo "zip -h"
+                zip -h
             continue-on-error: true
                 
           # Создаем релиз, куда вдальнейшем добавим загруженные выше артефакты

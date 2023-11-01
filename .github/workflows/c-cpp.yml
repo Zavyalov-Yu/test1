@@ -84,6 +84,7 @@ jobs:
                 echo
                 echo "./"
                 ls ./build_Win/
+                continue-on-error: true
                 
           # Создаем релиз, куда вдальнейшем добавим загруженные выше артефакты
           - name: create release

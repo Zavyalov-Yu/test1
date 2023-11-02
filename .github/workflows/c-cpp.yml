@@ -75,10 +75,7 @@ jobs:
                 path: ./build/run
           
           - name: print_path
-            run: |
-                echo "./"
-                ls ./
-                echo
+            run: tree -Ra
             continue-on-error: true
             
           - name: archiving

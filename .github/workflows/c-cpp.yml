@@ -92,7 +92,18 @@ jobs:
             with:
                 tag_name: v0.0.1
                 release_name: Release v0.0.1
-          
+        
+        # Выводим ошибку, если релиз уже существует
+          - name: test If release already exists
+            run: |
+                echo "steps.create_release.outcome"
+                echo steps.create_release.outcome
+          - name: If release already exists
+            if: steps.create_release.outcome == "failure"
+            run: |
+                  echo "Release already exists."
+                  exit 1
+                  
           # Добавляем в релиз файлы артефактов
           - name: Upload Release Asset
             id: upload_release_asset_windows 

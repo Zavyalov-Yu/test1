@@ -92,14 +92,16 @@ jobs:
             with:
                 tag_name: v0.0.1
                 release_name: Release v0.0.1
+            continue-on-error: true 
         
         # Выводим ошибку, если релиз уже существует
           - name: test If release already exists
             run: |
                 echo "steps.create_release.outcome"
                 echo steps.create_release.outcome
+          
           - name: If release already exists
-            if: steps.create_release.outcome == "failure"
+           # if: steps.create_release.outcome == "failure"
             run: |
                   echo "Release already exists."
                   exit 1
